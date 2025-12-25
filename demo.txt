@@ -1,8 +1,10 @@
-pipeline {
-    agent any 
-    tools {
-        maven 'maven3.9.11'
-        jdk 'java17'
-    stages (
-      stage  ('checkout') (
-          steps {
+
+---
+- name: install java package 
+  hosts: localhost
+  become: true
+  tasks:
+     - name: install java on ubuntu os
+       apt :
+         name: openjdk-17-jdk
+
